@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>Евва-Дент</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- Template Basic Images Start -->
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+	<!-- Template Basic Images End -->
+	
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#000">
+	<!-- Custom Browsers Color End -->
+
+	<link rel="stylesheet" href="css/main.min.css">
+    <style>
+        [v-cloak] {
+          display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="reviews" v-cloak>
+        <section class="main-reviews-section">
+            <header class="header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2">
+                            <a href="/" class="logo"><img src="./img/logo.svg"></a>
+                        </div>
+                        <div class="col-lg-8">
+                            <ul class="menu">
+                                <li class="menu__item">
+                                    <a href="#" class="menu__link">Услуги</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="works.html" class="menu__link">Работы</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="security.html" class="menu__link">Безопаснсть</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="staff.html" class="menu__link">Персонал</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="reviews.html" class="menu__link">Отзывы</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="phone">
+                                <img src="./img/phone-icon.svg">
+                                <div class="phone__item">+7 (925) 741-10-25</div>
+                                <div class="phone__item">+7 (499) 142-17-01</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="teeth-card">
+                            <img src="./img/teeth.png">
+                            <div class="teeth-card__content">
+                                Дорогие пациенты клиники <br />
+                                <strong>Евва-Дент</strong>! Мы будем Вам очень признательны, если вы оставите свое мнение о вашем пребывании в клинике в данном разделе.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="reviews-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="reviews-head">
+                            <div class="title">Отзывы</div>
+                            <div class="desc">Мы всегда рады услышать как слова благодарности, так и ваши замечания и пожелания относительно нашей работы, которые помогают нам стать еще лучше.</div>
+                            <button data-fancybox="dialog" data-src="#reviews-modal" class="btn">Написать отзыв</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div v-if="loading">
+                            <loader />
+                        </div>
+                        <div class="review" v-else-if="reviews.length" v-for="review in reviews.slice().reverse()">
+                            <img src="./img/person.svg" class="review__icon">
+                            <div class="review__row">
+                                <div class="review__name">{{review.name}}</div>
+                                <div class="review__date">{{review.createDate | formatDate}}</div>
+                            </div>
+                            <p class="review__desc">
+                                {{review.text}}
+                            </p>
+                        </div>
+                        <p v-else class="text-center">Отзывов пока нет</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="map-section">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa81ee46b311feaad75cf9c937a74647f2033e0b87029a3a0d01aa1545e85dbec&amp;source=constructor" width="100%" height="720" frameborder="0"></iframe>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="map-contact">
+                            <div class="white">
+                                <div class="map-contact__title">Контакты</div>
+                                <div class="map-contact__desc">ул. Большая Филёвская, <br /> д. 10/13.</div>
+                                <ul class="map-contact__row">
+                                    <li>
+                                        <img src="./img/metro.svg">
+                                        <span>Фили</span>
+                                    </li>
+                                    <li>
+                                        <img src="./img/mail.svg">
+                                        <a href="#">evvadent@mail.ru</a>
+                                    </li>
+                                    <li>
+                                        <img src="./img/phone.svg">
+                                        <span>+7 (925) 741-10-25</span>
+                                        <span>+7 (925) 741-10-25</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="blue">
+                                <ul class="blue__row">
+                                    <li>
+                                        <div class="blue__label">Пн - Пт:</div>
+                                        <strong>10:00 - 21:00</strong>
+                                    </li>
+                                    <li>
+                                        <div class="blue__label">Сб:</div>
+                                        <strong>10:00 - 20:00</strong>
+                                    </li>
+                                    <li>
+                                        <div class="blue__label">Вс:</div>
+                                        <strong>10:00 - 18:00</strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="logo"><img src="./img/logo-footer.svg"></div>
+                    </div>
+                    <div class="col-6">
+                        <ul class="footer-menu">
+                            <li class="footer-menu__item">
+                                <a href="#" class="footer-menu__link active">Услуги</a>
+                            </li>
+                            <li class="footer-menu__item">
+                                <a href="works.html" class="footer-menu__link">Работы</a>
+                            </li>
+                            <li class="footer-menu__item">
+                                <a href="security.html" class="footer-menu__link">Безопаснсть</a>
+                            </li>
+                            <li class="footer-menu__item">
+                                <a href="staff.html" class="footer-menu__link">Персонал</a>
+                            </li>
+                            <li class="footer-menu__item">
+                                <a href="reviews.html" class="footer-menu__link">Отзывы</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copy">Evvadent 2022</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+        <div id="toTop">
+            <img src="./img/up.svg">
+        </div>
+    
+        <!-- Reviews Contents -->
+        <form id="reviews-modal" class="modal" @submit.prevent="createReview">
+            <div class="modal__title">Написать отзыв</div>
+            <input type="text" class="modal__input" placeholder="Ваше имя*" value=""  v-model="form.name" />
+            <input type="email" class="modal__input" placeholder="Ваша почта*" value="" v-model="form.email" />
+            <textarea class="modal__textarea" rows="4" cols="50" placeholder="Ваш отзыв" v-model="form.text"></textarea>
+            <button type="submit" class="btn" :disabled="!canCreate">Оставить отзыв</button>
+            <div class="modal__desc">все поля с <span>*</span> обязательны для заполнения</div>
+        </form>
+    
+        <div id="thanks-review" class="modal">
+            <div class="modal__title">Спасибо за ваш отзыв!</div>
+            <div class="modal__icon"></div>
+            <div class="modal__desc">Мы всегда рады услышать как слова благодарности, так и ваши замечания и пожелания относительно нашей работы, которые помогают нам стать еще лучше.</div>
+        </div>
+    </div>
+
+    <script src="js/scripts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="./js/frontend.js"></script>
+
+</body>
+</html>
