@@ -7,7 +7,7 @@ const Review = require('./models/Review');
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json({ extended: true }));
 
 // GET
 app.get("/api/reviews", async (req, res) => {
@@ -38,7 +38,8 @@ app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "app", "reviews.html"));
 });
 
-const PORT = config.get('port') || 5000;
+// const PORT = config.get('port') || 5000;
+const PORT = process.env.PORT || 8080;
 
 async function start() {
     try {
