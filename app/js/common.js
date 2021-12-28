@@ -72,7 +72,9 @@ $(function() {
         }).done(function() {
             $(this).find("input").val("");
             Fancybox.close();
-            Fancybox.show([{ src: "#thanks-sign-up", type: "inline" }]);
+            setTimeout(() => {
+                Fancybox.show([{ src: "#thanks-sign-up", type: "inline" }]);
+            }, 200);
             $("#sign-up").trigger("reset");
         });
         return false;

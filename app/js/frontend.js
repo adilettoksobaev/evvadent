@@ -45,7 +45,9 @@ new Vue({
         
             this.form.name = this.form.email = this.form.text = '';
             Fancybox.close();
-            Fancybox.show([{ src: "#thanks-review", type: "inline" }]);
+            setTimeout(() => {
+                Fancybox.show([{ src: "#thanks-review", type: "inline" }]);
+            }, 200);
         },
     },
     async mounted() {
