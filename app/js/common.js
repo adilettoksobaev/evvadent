@@ -64,18 +64,18 @@ $(function() {
         $("html, body").animate({scrollTop: 0}, 500);
     });
 
-    $("#sign-up-1").submit(function() {
+    $("#sign-up").submit(function() {
         $.ajax({
             type: "POST",
             url: "mail.php",
             data: $(this).serialize()
         }).done(function() {
-            alert(true);
-            // $(this).find("input").val("");
-            // Fancybox.close();
-            // setTimeout(() => {
-            //     Fancybox.show([{ src: "#thanks-sign-up", type: "inline" }]);
-            // }, 200);
+            $(this).find("input").val("");
+            Fancybox.close();
+            setTimeout(() => {
+                Fancybox.show([{ src: "#thanks-sign-up", type: "inline" }]);
+            }, 200);
+            $("#sign-up").trigger("reset");
         });
         return false;
     });
