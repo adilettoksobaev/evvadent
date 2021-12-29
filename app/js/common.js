@@ -67,7 +67,7 @@ $(function() {
     $("#sign-up-1").submit(function() {
         $.ajax({
             type: "POST",
-            url: "../../mail.php",
+            url: "mail.php",
             data: $(this).serialize()
         }).done(function() {
             alert(true);
