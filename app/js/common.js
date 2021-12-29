@@ -64,17 +64,18 @@ $(function() {
         $("html, body").animate({scrollTop: 0}, 500);
     });
 
-    $("#sign-up").submit(function() {
+    $("#sign-up-1").submit(function() {
         $.ajax({
             type: "POST",
             url: "../../mail.php",
             data: $(this).serialize()
         }).done(function() {
-            $(this).find("input").val("");
-            Fancybox.close();
-            setTimeout(() => {
-                Fancybox.show([{ src: "#thanks-sign-up", type: "inline" }]);
-            }, 200);
+            alert(true);
+            // $(this).find("input").val("");
+            // Fancybox.close();
+            // setTimeout(() => {
+            //     Fancybox.show([{ src: "#thanks-sign-up", type: "inline" }]);
+            // }, 200);
         });
         return false;
     });
