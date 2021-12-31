@@ -1,5 +1,36 @@
 $(function() {
 
+    setTimeout(function(){
+        var preloader = document.getElementById('page-preloader');
+        if( !preloader.classList.contains('done')) {
+          preloader.classList.add('done');
+        }
+    }, 1000);
+
+    function textCut(text, limit) {
+        text = text.trim();
+        if( text.length <= limit) return text;
+      
+        text = text.slice(0, limit);
+      
+        return text.trim() + "...";
+    }
+
+    setTimeout(() => {
+        $(".review").each(function() {
+            const limit = 335;
+            const text = $(this).find('.review__desc').text();
+            const shortText = textCut(text, limit);
+            const reviewText = $(this).find('.review__desc');
+            reviewText.html(shortText);
+            if(text.length > limit) {
+                reviewText.append(' <a href="reviews.html">Читать далее</a>');
+            }
+        });
+    }, 1000);
+
+
+
     $('.certificates').slick({
         slidesToShow: 3,
         slidesToScroll: 3,
@@ -23,7 +54,8 @@ $(function() {
         slidesToScroll: 3,
         arrows: false,
         dots: true,
-        speed: 300
+        speed: 300,
+        infinite: false
     });
 
     $('.doctors-carousel').slick({
@@ -35,13 +67,15 @@ $(function() {
         nextArrow: '<img class="next-arrow" src="./img/next.png">'
     });
 
-    $('.reviews-carousel').slick({
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        arrows: false,
-        dots: true,
-        speed: 300
-    });
+    setTimeout(() => {
+        $('.reviews-carousel').slick({
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            arrows: false,
+            dots: true,
+            speed: 300
+        });
+    }, 800);
 
     $('.person').find('.btn').hover(
         function() {
@@ -63,6 +97,18 @@ $(function() {
     $("#toTop").click(function() {
         $("html, body").animate({scrollTop: 0}, 500);
     });
+
+    const els = document.querySelector('.header');
+    let scrolled;
+
+    window.onscroll = function () {
+        scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrolled > 350) {
+            els.classList.add('f-nav');
+        } else {
+            els.classList.remove('f-nav');
+        }
+    };
 
     $("#sign-up").submit(function() {
         $.ajax({

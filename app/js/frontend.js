@@ -11,7 +11,7 @@ Vue.component('loader', {
 });
 
 new Vue({
-    el: '#reviews',
+    el: '#app',
     data() {
         return {
             loading: false,
