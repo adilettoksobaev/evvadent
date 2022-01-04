@@ -7,6 +7,38 @@ $(function() {
         }
     }, 1000);
 
+    $(".btn_mnu").click(function() {
+        $(this).toggleClass("active");
+        $(".menu").toggleClass("open");
+        $(".menu__bg").toggleClass("open");
+    });
+    
+    $( ".menu li a" ).click(function() {
+        $( ".menu" ).removeClass("open");
+        $(".menu__bg").removeClass("open");
+        $( ".btn_mnu" ).removeClass("active");
+    });
+
+    $( ".menu__bg" ).click(function() {
+        $( ".menu" ).removeClass("open");
+        $(".menu__bg").removeClass("open");
+        $( ".btn_mnu" ).removeClass("active");
+    });
+
+    setTimeout(function(){
+        $('.count').each(function () {
+            var $this = $(this);
+            jQuery({ Counter: 0 }).animate({ Counter: $this.attr('data-stop') }, {
+                duration: 1000,
+                easing: 'swing',
+                step: function (now) {
+                    $this.text(Math.ceil(now));
+                }
+            });
+        });
+    }, 1500);
+
+
     function textCut(text, limit) {
         text = text.trim();
         if( text.length <= limit) return text;
@@ -36,6 +68,7 @@ $(function() {
         slidesToScroll: 3,
         dots: false,
         speed: 300,
+        infinite: false,
         prevArrow: '<img class="prev-arrow" src="./img/prev.png">',
         nextArrow: '<img class="next-arrow" src="./img/next.png">'
     });
@@ -47,6 +80,16 @@ $(function() {
         speed: 300,
         prevArrow: '<img class="prev-arrow" src="./img/prev.png">',
         nextArrow: '<img class="next-arrow" src="./img/next.png">'
+    });
+
+    $('.mobile-carousel').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        speed: 300,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 2000,
     });
 
     $('.our-works-carousel').slick({
@@ -103,7 +146,7 @@ $(function() {
 
     window.onscroll = function () {
         scrolled = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrolled > 350) {
+        if (scrolled > 134) {
             els.classList.add('f-nav');
         } else {
             els.classList.remove('f-nav');
@@ -126,4 +169,8 @@ $(function() {
         return false;
     });
 
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    new WOW().init();
 });

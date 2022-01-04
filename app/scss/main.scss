@@ -114,7 +114,6 @@ strong {
     font-weight: 600;
     cursor: pointer;
     border: none;
-    transition: all .3s ease-in;
     &.btn-outline {
         border: 2px solid $main;
         line-height: 48px;
@@ -129,6 +128,7 @@ strong {
     &.btn-white {
         background-color: #fff;
         color: $accent;
+        transition: all .3s ease-in;
         &:hover {
             background-color: #353535;
             color: #fff;
@@ -194,7 +194,6 @@ section {
     min-height: 134px;
     padding-left: 20px;
     padding-right: 20px;
-    position: sticky;
     display: flex;
     align-items: center;
     color: $main;
@@ -1113,6 +1112,10 @@ section {
         letter-spacing: -1.5px;
         color: $main;
     }
+    .count {
+        min-width: 78px;
+        display: inline-block;
+    }
 }
 .patients-section {
     width: 100%;
@@ -1232,6 +1235,9 @@ section {
     align-items: center;
     justify-content: center;
     text-align: center;
+    .title {
+        color: #FFFFFF
+    }
     .btn {
         background: #FFFFFF;
         color: $accent;
@@ -1316,6 +1322,7 @@ section {
     img {
         border-radius: 20px;
         margin: auto;
+        cursor: pointer;
     }
     .prev-arrow,
     .next-arrow {
@@ -1456,6 +1463,10 @@ section {
             color: $accent;
         }
     }
+}
+.modile-phone,
+.mobile-card {
+    display: none;
 }
 
 @import "media"; // Always at the end
