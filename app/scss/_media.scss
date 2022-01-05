@@ -166,10 +166,12 @@
         right: 0;
         top: 0;
         margin: auto;
-        margin-top: 45px;
+        margin-top: 65px;
     }
     .teeth-card {
         margin: auto;
+        position: relative;
+        margin-top: 50px;
         img {
             max-width: 100%;
         }
@@ -179,7 +181,7 @@
         }
     }
     .main-reviews-section {
-        min-height: 690px;
+        min-height: 640px;
     }
     .review__row {
         flex-wrap: wrap;
