@@ -97,6 +97,16 @@
             font-size: 18px;
             line-height: 1.6;
         }
+        .sub-menu {
+            position: relative;
+            opacity: 1;
+            visibility: visible;
+            padding-top: 0;
+            padding-bottom: 5px;
+            a {
+                margin-bottom: 6px;
+            }
+        }
     }
     .menu__bg {
         transition: all .5s ease;
@@ -110,10 +120,84 @@
             z-index: -1;
         }
     }
+    .doctor {
+        max-width: 558px;
+    }
+    .services {
+        justify-content: center;
+    }
+    .doctor__row {
+        bottom: 182px;
+        right: -50px;
+    }
+    .doctor__row img {
+        margin-right: 16px;
+        max-width: 366px;
+    }
+    .doctor__row::after {
+        width: 400px;
+        height: 400px;
+    }
+    .main-carousel .next-arrow {
+        z-index: 9;
+        right: 0;
+    }
+    .main-carousel .prev-arrow {
+        left: 0;
+    }
+    .sub-title {
+        font-size: 24px;
+    }
+    .title {
+        font-size: 32px; 
+    }
+    .doctor__title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    .person {
+        max-width: 290px;
+    }
+    .our-works-carousel__item {
+        min-height: auto;
+    }
+    .teeth-card__content {
+        position: relative;
+        right: 0;
+        top: 0;
+        margin: auto;
+        margin-top: 45px;
+    }
+    .teeth-card {
+        margin: auto;
+        img {
+            max-width: 100%;
+        }
+        &::after {
+            width: 320px;
+            height: 320px;
+        }
+    }
+    .main-reviews-section {
+        min-height: 690px;
+    }
+    .review__row {
+        flex-wrap: wrap;
+    }
+    .modal {
+        max-width: 360px;
+        padding: 35px 15px;
+    }
+    .reviews-head {
+        margin-bottom: 30px;
+    }
 }
 
 // ≥992px
 @media only screen and (max-width: 992px) {
+    .person {
+        max-width: 310px;
+    }
     .desctop-card {
         display: none;
     }
@@ -159,6 +243,73 @@
         padding-top: 30px;
         padding-bottom: 30px;
     }
+    .img-row::after {
+        top: -10px;
+        right: -10px;
+    }
+    .content {
+        margin-bottom: 30px;
+    }
+    .our-works-carousel__item {
+        max-width: 350px;
+    }
+    .our-works-section {
+        min-height: 514px;
+    }
+    .desc {
+        margin-bottom: 24px;
+    }
+    .doctors-carousel {
+        .next-arrow {
+            right: -20px;
+        }
+        .prev-arrow {
+            left: -20px;
+        }
+    }
+    .reviews-row {
+        .btn-review {
+            bottom: -30px;
+        }
+    }
+    .reviews-section .desc {
+        font-size: 18px;
+    }
+    .img-arround {
+        float: initial;
+        text-align: center;
+        margin: auto;
+    }
+    .img-row-botom {
+        float: left;
+    }
+    .img-row-botom::after {
+        bottom: -10px;
+        right: -10px;
+    }
+    .helodent-section {
+        color: #fff;
+        .title {
+            color: #fff;
+        }
+    }
+    .ultrasonic-section {
+        min-height: auto;
+    }
+    .staff-section {
+        padding-bottom: 50px;
+    }
+    .staff {
+        justify-content: center;
+    }
+    .certificates-section {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+    .certificates .next-arrow,
+    .certificates .prev-arrow {
+        width: 25px;
+    }
 }
 
 // ≥768px
@@ -167,8 +318,65 @@
 }
 
 // ≥576px
-@include media-breakpoint-down(xs) {
-    
+@media only screen and (max-width: 576px) {
+    .partners {
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        .title {
+            padding-bottom: 10px;
+        }
+    }
+    .partners__row {
+        flex-wrap: wrap;
+        justify-content: center;
+        a {
+            margin-bottom: 20px;
+        }
+    }
+    .doctors-carousel .next-arrow {
+        right: -10px;
+        width: 25px;
+    }
+    .doctors-carousel .prev-arrow {
+        left: -10px;
+        width: 25px;
+    }
+    .person {
+        box-shadow: 0.33233px 0.6707px 16.3414px rgb(0 0 0 / 8%);
+        overflow: hidden;
+        margin: 20px auto;
+    }
+    .services-section .title {
+        margin-bottom: 24px;
+    }
+    .service__title {
+        font-size: 20px;
+    }
+    .reviews-row {
+        margin-top: 30px;
+        .btn-review {
+            bottom: -64px;
+        }
+    }
+    .our-works-section {
+        min-height: 540px;
+    }
+    .our-works-carousel__item {
+        margin: 0;
+    }
+    .doctors-carousel {
+        min-height: 660px;
+    }
+    .img-top {
+        margin-top: 0;
+    }
+    .bottom-section {
+        padding-bottom: 50px;
+    }
+    .works__item {
+        max-width: 100%;
+    }
 }
 
 

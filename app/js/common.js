@@ -49,7 +49,7 @@ $(function() {
     }
 
     setTimeout(() => {
-        $(".review").each(function() {
+        $(".reviews-section .review").each(function() {
             const limit = 335;
             const text = $(this).find('.review__desc').text();
             const shortText = textCut(text, limit);
@@ -70,7 +70,23 @@ $(function() {
         speed: 300,
         infinite: false,
         prevArrow: '<img class="prev-arrow" src="./img/prev.png">',
-        nextArrow: '<img class="next-arrow" src="./img/next.png">'
+        nextArrow: '<img class="next-arrow" src="./img/next.png">',
+        responsive: [
+            {
+                breakpoint: 770,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
     });
 
     $('.main-carousel').slick({
@@ -98,7 +114,23 @@ $(function() {
         arrows: false,
         dots: true,
         speed: 300,
-        infinite: false
+        infinite: false,
+        responsive: [
+            {
+                breakpoint: 770,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
     });
 
     $('.doctors-carousel').slick({
@@ -107,7 +139,23 @@ $(function() {
         dots: false,
         speed: 300,
         prevArrow: '<img class="prev-arrow" src="./img/prev.png">',
-        nextArrow: '<img class="next-arrow" src="./img/next.png">'
+        nextArrow: '<img class="next-arrow" src="./img/next.png">',
+        responsive: [
+            {
+                breakpoint: 770,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
     });
 
     setTimeout(() => {
@@ -116,9 +164,25 @@ $(function() {
             slidesToScroll: 3,
             arrows: false,
             dots: true,
-            speed: 300
+            speed: 300,
+            responsive: [
+                {
+                    breakpoint: 1025,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                }
+            ]
         });
-    }, 800);
+    }, 1200);
 
     $('.person').find('.btn').hover(
         function() {
