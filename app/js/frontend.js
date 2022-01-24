@@ -39,15 +39,18 @@ new Vue({
         async createReview() {
             const {...review} = this.form
         
-            const newReview = await request('https://warm-bayou-13724.herokuapp.com/api/reviews', 'POST', review)
+            const newReview = await request('https://warm-bayou-13724.herokuapp.com/api/reviews', 'POST', review);
         
-            this.reviews.push(newReview)
-        
-            this.form.name = this.form.email = this.form.text = '';
-            Fancybox.close();
-            setTimeout(() => {
-                Fancybox.show([{ src: "#thanks-review", type: "inline" }]);
-            }, 200);
+            if(newReview) {
+                this.reviews.push(newReview);
+                this.form.name = this.form.email = this.form.text = '';
+                Fancybox.close();
+                setTimeout(() => {
+                    Fancybox.show([{ src: "#thanks-review", type: "inline" }]);
+                }, 200);
+            } else {
+                alert('Что-то пошло не так!')
+            }
         },
     },
     async mounted() {
