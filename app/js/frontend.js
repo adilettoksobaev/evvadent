@@ -39,7 +39,7 @@ new Vue({
         async createReview() {
             const {...review} = this.form
         
-            const newReview = await request('/api/reviews', 'POST', review)
+            const newReview = await request('https://warm-bayou-13724.herokuapp.com/api/reviews', 'POST', review)
         
             this.reviews.push(newReview)
         
@@ -52,14 +52,18 @@ new Vue({
     },
     async mounted() {
         this.loading = true
-        this.reviews = await request('/api/reviews')
+        this.reviews = await request('https://warm-bayou-13724.herokuapp.com/api/reviews')
         this.loading = false
     }
 });
 
 async function request(url, method = 'GET', data = null) {
     try {
-        const headers = {}
+        const headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Credentials': 'true'
+        }
         let body
     
         if (data) {

@@ -1,4 +1,5 @@
 const express = require("express");
+var cors = require('cors')
 const path = require("path");
 const config = require('config')
 const { v4 } = require("uuid");
@@ -9,8 +10,13 @@ const app = express();
 
 app.use(express.json({ extended: true }));
 
+var corsOptions = {
+    origin: 'http://evvadent.ru',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 // GET
-app.get("/api/reviews", async (req, res) => {
+app.get("/api/reviews", cors(corsOptions), async (req, res) => {
     try {
         const reviews = await Review.find();
         res.status(200).json(reviews);
