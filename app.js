@@ -8,15 +8,13 @@ const Review = require('./models/Review');
 
 const app = express();
 
+app.use(cors({
+    origin: '*'
+}));
 app.use(express.json({ extended: true }));
 
-var corsOptions = {
-    origin: 'http://evvadent.ru',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-
 // GET
-app.get("/api/reviews", cors(corsOptions), async (req, res) => {
+app.get("/api/reviews", async (req, res) => {
     try {
         const reviews = await Review.find();
         res.status(200).json(reviews);
